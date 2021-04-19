@@ -1,14 +1,14 @@
 <?php
 
 
-namespace app\core;
+namespace App\Core;
 
 
 /**
  * Class Response
  *
  * @author Abbas Alshaqaaq <abbas20alzaeem@gmail.com>
- * @package app\core
+ * @package App\Core
  */
 class Response {
 

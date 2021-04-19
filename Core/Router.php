@@ -1,12 +1,12 @@
 <?php
 
-namespace app\core;
+namespace App\Core;
 
 /**
  * Class Router
  *
  * @author Abbas Alshaqaaq <abbas20alzaeem@gmail.com>
- * @package app\core
+ * @package App\Core
  */
 
 class Router {
@@ -42,6 +42,15 @@ class Router {
     }
 
     /**
+     * @param $path
+     * @param $callback
+     */
+    public function post($path, $callback)
+    {
+        $this->routes['post'][$path] = $callback;
+    }
+
+    /**
      * @return mixed|string|void
      */
     public function resolve()
@@ -59,16 +68,23 @@ class Router {
             return $this->renderView($callback);
         }
 
+        if (is_array($callback)){
+            $callback[0] = new $callback[0]();
+            return call_user_func($callback);
+        }
+
         return call_user_func($callback);
     }
 
     /**
      * @param $view
+     * @param array $param
+     * @return string|string[]
      */
-    public function renderView($view)
+    public function renderView($view, $params = [])
     {
         $layoutContent = $this->getLayoutContent();
-        $viewContent = $this->getSingleViewContent($view);
+        $viewContent = $this->getSingleViewContent($view, $params);
         return str_replace('{{content}}', $viewContent, $layoutContent);
     }
 
@@ -79,8 +95,12 @@ class Router {
         return ob_get_clean();
     }
 
-    private function getSingleViewContent($view)
+    private function getSingleViewContent($view, $params)
     {
+        foreach ($params as $key =>$val) {
+            $$key = $val;
+        }
+
         ob_start();
         include_once Application::$ROOT_DIR."/views/$view.php";
         return ob_get_clean();

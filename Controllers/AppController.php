@@ -1,0 +1,49 @@
+<?php
+
+
+namespace App\Controllers;
+
+use App\Core\Application;
+use App\Core\Controller;
+
+/**
+ * Class Application
+ *
+ * @author Abbas Alshaqaaq <abbas20alzaeem@gmail.com>
+ * @package app\Controllers
+ */
+
+class AppController extends Controller {
+
+    public function home()
+    {
+        $name = "abbas";
+        $age = 21;
+
+//        $hobbies = [
+//            'swimming',
+//            'football',
+//            'Gamming',
+//            'programming'
+//        ];
+
+//        return Application::$app->router->renderView('home',[
+//            'name' => $name,
+//            'age' => $age,
+//        ]);
+        return $this->view('home', compact('name', 'age'));
+    }
+
+    public function contactCreate()
+    {
+        return $this->view('contact');
+    }
+
+    public function contactStore()
+    {
+        return "handling post request";
+
+    }
+
+
+}
