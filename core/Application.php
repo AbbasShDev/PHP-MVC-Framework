@@ -15,23 +15,32 @@ class Application {
      * @var Router
      * @var Request
      */
+    public static string $ROOT_DIR;
     public Router $router;
+    public Response $response;
     public Request $request;
+    public static Application $app;
 
     /**
      * Application constructor.
+     * @param $rootDir
      */
 
-    public function __construct()
+    public function __construct($rootDir)
     {
-
+        self::$app = $this;
+        self::$ROOT_DIR = $rootDir;
         $this->request = new Request();
-        $this->router = new Router($this->request);
+        $this->response = new Response();
+        $this->router = new Router($this->request, $this->response);
 
     }
 
+    /**
+     *
+     */
     public function run()
     {
-        $this->router->resolve();
+        echo $this->router->resolve();
     }
 }
