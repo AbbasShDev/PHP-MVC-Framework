@@ -5,6 +5,7 @@ namespace App\Controllers;
 
 use App\Core\Application;
 use App\Core\Controller;
+use App\Core\Request;
 
 /**
  * Class Application
@@ -39,9 +40,9 @@ class AppController extends Controller {
         return $this->view('contact');
     }
 
-    public function contactStore()
+    public function contactStore(Request $request)
     {
-        return "handling post request";
+        var_dump($request->getBody());
 
     }
 
