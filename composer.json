@@ -1,0 +1,16 @@
+{
+    "name": "abbasalshaqaq/php-mvc-framework",
+    "authors": [
+        {
+            "name": "abbasShDev",
+            "email": "abbas20alzaeem@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {},
+    "description": ""
+}
