@@ -12,14 +12,29 @@ namespace App\Core;
 class Application {
 
     /**
-     * @var Router
-     * @var Request
+     * @var string
      */
     public static string $ROOT_DIR;
+    /**
+     * @var Router
+     */
     public Router $router;
+    /**
+     * @var Response
+     */
     public Response $response;
+    /**
+     * @var Request
+     */
     public Request $request;
+    /**
+     * @var Application
+     */
     public static Application $app;
+    /**
+     * @var Controller
+     */
+    public Controller  $controller;
 
     /**
      * Application constructor.
@@ -37,9 +52,25 @@ class Application {
     }
 
     /**
+     * @return Controller
+     */
+    public function getController(): Controller
+    {
+        return $this->controller;
+    }
+
+    /**
+     * @param Controller $controller
+     */
+    public function setController(Controller $controller): void
+    {
+        $this->controller = $controller;
+    }
+
+    /**
      *
      */
-    public function run()
+    public function run() : void
     {
         echo $this->router->resolve();
     }

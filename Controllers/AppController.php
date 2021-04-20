@@ -8,10 +8,10 @@ use App\Core\Controller;
 use App\Core\Request;
 
 /**
- * Class Application
+ * Class AppController
  *
  * @author Abbas Alshaqaaq <abbas20alzaeem@gmail.com>
- * @package app\Controllers
+ * @package App\Controllers
  */
 
 class AppController extends Controller {
