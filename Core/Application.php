@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use App\Core\Routing\Router;
+
 /**
  * Class Application
  *

@@ -1,22 +1,32 @@
 <?php
 
-namespace App\Core;
+namespace App\Core\Routing;
+
+use App\Core\Application;
+use App\Core\Request;
+use App\Core\Response;
 
 /**
  * Class Router
  *
  * @author Abbas Alshaqaaq <abbas20alzaeem@gmail.com>
- * @package App\Core
+ * @package App\Core\Routing
  */
 
 class Router {
+
+    /**
+     * @var Router
+     */
+    public static Router $router;
+
     /**
      *
      * @var array
      * @var Request
      * @var Response
      */
-    protected array $routes = [];
+    public array $routes = [];
     public Request $request;
     public Response $response;
 
@@ -27,27 +37,9 @@ class Router {
      */
     public function __construct(Request $request, Response $response)
     {
+        self::$router = $this;
         $this->request = $request;
         $this->response = $response;
-    }
-
-
-    /**
-     * @param $path
-     * @param $callback
-     */
-    public function get($path, $callback)
-    {
-        $this->routes['get'][$path] = $callback;
-    }
-
-    /**
-     * @param $path
-     * @param $callback
-     */
-    public function post($path, $callback)
-    {
-        $this->routes['post'][$path] = $callback;
     }
 
     /**

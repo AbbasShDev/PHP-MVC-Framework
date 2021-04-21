@@ -2,14 +2,20 @@
     <h1 class="text-center">Register</h1>
 
     <form class="my-5" action="" method="post">
-        <div class="form-group">
-            <label for="firstname">First Name</label>
-            <input type="text" class="form-control" id="firstname" name="firstname">
-        </div>
 
-        <div class="form-group">
-            <label for="lastname">Last Name</label>
-            <input type="text" class="form-control" id="lastname" name="lastname">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" class="form-control" id="firstname" name="firstname">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname">
+                </div>
+            </div>
         </div>
 
         <div class="form-group">
